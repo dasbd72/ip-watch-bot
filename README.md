@@ -1,4 +1,4 @@
-# ip-detect
+# ip-watch-bot
 
 Checks your public IP address and sends a Telegram notification when it changes.
 
@@ -11,7 +11,7 @@ Checks your public IP address and sends a Telegram notification when it changes.
 ## Usage
 
 ```
-uv run ip-detect
+uv run ip-watch-bot
 ```
 
 On each run, it fetches your current public IP, compares it to the last known IP
@@ -21,5 +21,5 @@ sends a Telegram message only if the IP has changed.
 Schedule it periodically with cron, e.g. every 15 minutes:
 
 ```
-*/15 * * * * cd /path/to/ip-detect && uv run ip-detect
+*/15 * * * * cd /path/to/ip-watch-bot && uv run ip-watch-bot
 ```

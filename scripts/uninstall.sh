@@ -3,9 +3,9 @@ set -euo pipefail
 
 UNIT_DIR="${HOME}/.config/systemd/user"
 
-systemctl --user disable --now ip-detect.timer 2>/dev/null || true
-rm -f "${UNIT_DIR}/ip-detect.service" "${UNIT_DIR}/ip-detect.timer"
+systemctl --user disable --now ip-watch-bot.timer 2>/dev/null || true
+rm -f "${UNIT_DIR}/ip-watch-bot.service" "${UNIT_DIR}/ip-watch-bot.timer"
 
 systemctl --user daemon-reload
 
-echo "Removed ip-detect.timer and ip-detect.service."
+echo "Removed ip-watch-bot.timer and ip-watch-bot.service."

@@ -2,10 +2,10 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from ip_detect.telegram import send_message
+from ip_watch_bot.telegram import send_message
 
 
-@patch("ip_detect.telegram.requests.post")
+@patch("ip_watch_bot.telegram.requests.post")
 def test_send_message_posts_to_telegram_api(mock_post):
     mock_response = Mock()
     mock_response.raise_for_status = Mock()
@@ -21,7 +21,7 @@ def test_send_message_posts_to_telegram_api(mock_post):
     mock_response.raise_for_status.assert_called_once()
 
 
-@patch("ip_detect.telegram.requests.post")
+@patch("ip_watch_bot.telegram.requests.post")
 def test_send_message_raises_on_http_error(mock_post):
     mock_response = Mock()
     mock_response.raise_for_status.side_effect = Exception("boom")

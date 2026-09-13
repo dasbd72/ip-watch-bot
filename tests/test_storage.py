@@ -1,4 +1,4 @@
-from ip_detect.storage import read_last_ip, write_last_ip
+from ip_watch_bot.storage import read_last_ip, write_last_ip
 
 
 def test_read_last_ip_returns_none_when_file_missing(tmp_path):

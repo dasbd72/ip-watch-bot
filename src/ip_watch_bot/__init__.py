@@ -1,9 +1,9 @@
 import sys
 
-from ip_detect.config import Config, ConfigError, load_config
-from ip_detect.ip import get_public_ip
-from ip_detect.storage import read_last_ip, write_last_ip
-from ip_detect.telegram import send_message
+from ip_watch_bot.config import Config, ConfigError, load_config
+from ip_watch_bot.ip import get_public_ip
+from ip_watch_bot.storage import read_last_ip, write_last_ip
+from ip_watch_bot.telegram import send_message
 
 
 def run(config: Config) -> None:

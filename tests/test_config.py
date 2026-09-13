@@ -1,6 +1,6 @@
 import pytest
 
-from ip_detect.config import ConfigError, load_config
+from ip_watch_bot.config import ConfigError, load_config
 
 
 def test_load_config_reads_required_env_vars(monkeypatch, tmp_path):

@@ -4,4 +4,4 @@ Description=Check public IP and notify via Telegram if changed
 [Service]
 Type=oneshot
 WorkingDirectory=__REPO_DIR__
-ExecStart=__UV_BIN__ run ip-detect
+ExecStart=__UV_BIN__ run ip-watch-bot

@@ -2,10 +2,10 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from ip_detect.ip import get_public_ip
+from ip_watch_bot.ip import get_public_ip
 
 
-@patch("ip_detect.ip.requests.get")
+@patch("ip_watch_bot.ip.requests.get")
 def test_get_public_ip_returns_stripped_ip(mock_get):
     mock_response = Mock()
     mock_response.text = "203.0.113.42\n"
@@ -18,7 +18,7 @@ def test_get_public_ip_returns_stripped_ip(mock_get):
     mock_get.assert_called_once()
 
 
-@patch("ip_detect.ip.requests.get")
+@patch("ip_watch_bot.ip.requests.get")
 def test_get_public_ip_raises_on_http_error(mock_get):
     mock_response = Mock()
     mock_response.raise_for_status.side_effect = Exception("boom")
