@@ -1,0 +1,29 @@
+[project]
+name = "ip-detect"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-dotenv>=1.2.3",
+    "requests>=2.34.2",
+]
+
+[project.scripts]
+ip-detect = "ip_detect:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.1",
+    "pre-commit>=4.6.2",
+    "pytest>=9.1.1",
+    "ruff>=0.16.7",
+    "types-requests>=2.33.0.20260906",
+]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
