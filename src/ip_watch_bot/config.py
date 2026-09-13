@@ -29,6 +29,6 @@ def load_config(dotenv_path: Path | None = None) -> Config:
     if not chat_id:
         raise ConfigError("TELEGRAM_CHAT_ID environment variable is required")
 
-    state_file = Path(os.environ.get("IP_DETECT_STATE_FILE") or DEFAULT_STATE_FILE)
+    state_file = Path(os.environ.get("IP_WATCH_BOT_STATE_FILE") or DEFAULT_STATE_FILE)
 
     return Config(bot_token=bot_token, chat_id=chat_id, state_file=state_file)

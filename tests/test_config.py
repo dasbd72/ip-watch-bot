@@ -6,7 +6,7 @@ from ip_watch_bot.config import ConfigError, load_config
 def test_load_config_reads_required_env_vars(monkeypatch, tmp_path):
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "test-token")
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "12345")
-    monkeypatch.delenv("IP_DETECT_STATE_FILE", raising=False)
+    monkeypatch.delenv("IP_WATCH_BOT_STATE_FILE", raising=False)
 
     config = load_config(dotenv_path=tmp_path / "missing.env")
 
@@ -18,7 +18,7 @@ def test_load_config_reads_required_env_vars(monkeypatch, tmp_path):
 def test_load_config_uses_custom_state_file(monkeypatch, tmp_path):
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "test-token")
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "12345")
-    monkeypatch.setenv("IP_DETECT_STATE_FILE", str(tmp_path / "state.txt"))
+    monkeypatch.setenv("IP_WATCH_BOT_STATE_FILE", str(tmp_path / "state.txt"))
 
     config = load_config(dotenv_path=tmp_path / "missing.env")
 
@@ -28,7 +28,7 @@ def test_load_config_uses_custom_state_file(monkeypatch, tmp_path):
 def test_load_config_falls_back_to_default_when_state_file_empty(monkeypatch, tmp_path):
     monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "test-token")
     monkeypatch.setenv("TELEGRAM_CHAT_ID", "12345")
-    monkeypatch.setenv("IP_DETECT_STATE_FILE", "")
+    monkeypatch.setenv("IP_WATCH_BOT_STATE_FILE", "")
 
     config = load_config(dotenv_path=tmp_path / "missing.env")
 
