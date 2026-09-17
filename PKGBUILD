@@ -7,17 +7,17 @@ arch=('any')
 url="https://github.com/dasbd72/ip-watch-bot"
 license=('MIT')
 depends=('python' 'python-requests' 'python-yaml')
-makedepends=('python-build' 'python-installer' 'python-wheel' 'python-hatchling')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/dasbd72/ip-watch-bot/archive/refs/tags/v$pkgver.tar.gz")
+makedepends=('git' 'python-build' 'python-installer' 'python-wheel' 'python-hatchling')
+source=("$pkgname::git+https://github.com/dasbd72/ip-watch-bot.git#tag=v$pkgver")
 sha256sums=('SKIP')
 
 build() {
-    cd "$pkgname-$pkgver"
+    cd "$pkgname"
     python -m build --wheel --no-isolation
 }
 
 package() {
-    cd "$pkgname-$pkgver"
+    cd "$pkgname"
     python -m installer --destdir="$pkgdir" dist/*.whl
     install -Dm644 systemd/ip-watch-bot.service "$pkgdir/usr/lib/systemd/user/ip-watch-bot.service"
     install -Dm644 systemd/ip-watch-bot.timer "$pkgdir/usr/lib/systemd/user/ip-watch-bot.timer"
