@@ -3,5 +3,9 @@ __pycache__/
 *.pyc
 .mypy_cache/
 .pytest_cache/
-.env
-last_ip.txt
+.ruff_cache/
+dist/
+*.tar.gz
+*.pkg.tar.zst
+pkg/
+src/ip-watch-bot-*/

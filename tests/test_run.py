@@ -1,7 +1,7 @@
 from pathlib import Path
 from unittest.mock import patch
 
-from ip_watch_bot import run
+from ip_watch_bot.cli import run
 from ip_watch_bot.config import Config
 
 
@@ -13,8 +13,8 @@ def make_config(tmp_path: Path) -> Config:
     )
 
 
-@patch("ip_watch_bot.send_message")
-@patch("ip_watch_bot.get_public_ip")
+@patch("ip_watch_bot.cli.send_message")
+@patch("ip_watch_bot.cli.get_public_ip")
 def test_run_sends_message_when_ip_changed(mock_get_ip, mock_send, tmp_path):
     config = make_config(tmp_path)
     config.state_file.write_text("203.0.113.1")
@@ -28,8 +28,8 @@ def test_run_sends_message_when_ip_changed(mock_get_ip, mock_send, tmp_path):
     assert config.state_file.read_text() == "203.0.113.2"
 
 
-@patch("ip_watch_bot.send_message")
-@patch("ip_watch_bot.get_public_ip")
+@patch("ip_watch_bot.cli.send_message")
+@patch("ip_watch_bot.cli.get_public_ip")
 def test_run_skips_message_when_ip_unchanged(mock_get_ip, mock_send, tmp_path):
     config = make_config(tmp_path)
     config.state_file.write_text("203.0.113.2")
@@ -41,8 +41,8 @@ def test_run_skips_message_when_ip_unchanged(mock_get_ip, mock_send, tmp_path):
     assert config.state_file.read_text() == "203.0.113.2"
 
 
-@patch("ip_watch_bot.send_message")
-@patch("ip_watch_bot.get_public_ip")
+@patch("ip_watch_bot.cli.send_message")
+@patch("ip_watch_bot.cli.get_public_ip")
 def test_run_sends_message_on_first_run_with_no_prior_state(
     mock_get_ip, mock_send, tmp_path
 ):
